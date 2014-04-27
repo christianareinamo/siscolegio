@@ -1,0 +1,557 @@
+<DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Bootstrap colegios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/reset.css" rel="stylesheet">
+      <style type="text/css">
+          /* Sticky footer styles
+          -------------------------------------------------- */
+          @font-face{
+             font-family:"Open";
+             src: url(fonts/OpenSans-Regular.ttf);
+          }
+
+          body{
+            font-family: 'Open', sans-serif;
+            font-size: 13px;
+            color: #555;
+            background: #ececec;
+            padding: 0;
+          }
+
+          #wrapper{
+            padding:0 15px;
+          }
+
+          .container{
+            width:100%;
+            margin:0;
+            padding: 0px;
+          }
+          .container *,
+          .container .row *{
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            -o-border-radius: 0px;
+            border-radius: 0px;
+            border: 0px;            
+          }          
+          header#header-top{
+            background-color: #22B7FF;
+            margin:0px -15px;
+            height:40px;
+          }
+          /* Nombre de la aplicacion*/
+          .navbar-brand{
+            //margin-left:-10px;
+            background: #00A4F2;
+            height:40px;
+          }
+          header#header-top nav{
+            background-color:transparent;
+            margin:0px;
+            height:40px;
+          }
+          #header-top .navbar-nav > li > a {
+            color:#fff;
+            height:40px;
+            padding-top:12px;
+            padding-bottom:15px;
+            /*
+            padding-bottom:0px;
+            padding-top:0px;*/
+          }
+
+          #header-top .navbar-brand {
+            color: #fff;
+          }
+          #page{
+            background-color:#ececec;
+          }
+          #right{
+            background:#f1f1f1;
+            min-height: 1000px;
+            border-left: 1px solid #CCE0E6;
+            border-bottom: 1px solid #CCE0E6;
+            padding: 0 35px;
+          }
+          #right #semillas{
+            padding-top: 18px;
+            padding-bottom:18px;
+            background: transparent;
+            height:50px; 
+            margin-bottom: 0px;
+          }
+          #sidebar-left{
+            background: #ececec;            
+          }
+          #search form {
+            margin: 0 15px;
+            position: relative;
+          }          
+          #search {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            position: relative;
+            z-index: 15;
+          }
+          #search .form-control{
+            
+            border: 1px solid #363636;
+            color: #FFF;
+            position: relative;
+            background:transparent;
+            top: 12px;
+            box-sizing: border-box;
+          }
+          #search form #search-btn {
+            color: #393939;
+            font-size: 15px;
+            font-weight: 600;
+            position: absolute;
+            left: 220px;
+            top: 12px;
+            background: transparent;
+            transition: color 0.25s linear;
+          }
+          #search form #search-btn:hover,
+          #search form #search-btn:focus {
+            color: #bd2917;
+            outline: none;
+          }
+          .fa {
+              display: inline-block;
+              font-family: FontAwesome;
+              font-style: normal;
+              font-weight: normal;
+              line-height: 1;
+          }
+
+          .nav.nav-stacked li {
+            //padding: 0 25px;     
+          }    
+
+          .nav.nav-stacked > li > a,
+          .nav.nav-stacked > li > ul > li > a{
+              position: relative;       
+              background: transparent;       
+          }    
+
+          .nav.nav-stacked > li > a{
+            position: relative;
+            color:#444;
+            display: block;
+            height: 40px;
+            padding: 15px 15px;
+            border-bottom: 1px solid #bbb;
+            box-shadow: 0 2px 1px -1px #FFFFFF;
+            /*overflow:hidden;*/
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+          }
+          i.icon{
+            background-color:transparent;
+            position: relative;
+            display: block;
+            float: left;
+            width: 50px;
+            height: 40px;
+            line-height: 50px;
+            border-right: 1px solid #e5e5e5;
+            text-align: center;
+            margin: -15px 10px -15px -15px;
+          }
+
+          .box-notice-rectangle {
+            margin-bottom:25px;
+            width:100%;
+            display: block;
+            height: 70px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            overflow: hidden;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            line-height: 20px;
+            font-smooth: always;
+            overflow: hidden;
+            z-index: 1;
+          }
+          .box-notice-rectangle:hover {
+              opacity: 0.8; }
+
+          .box-notice-rectangle a {
+            width:100%;
+            padding: 0px 10px;
+            font-weight: 400;
+            color: white;
+            font-size: 16px;
+            font-smooth: always;
+            line-height: 16px;
+            position: absolute;
+            bottom: -10px;
+            left: 10px;
+            min-height: 30px;
+            background-color: transparent;
+            font-size: 14px;
+          }
+
+           .box-notice-rectangle .info {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            font-size: 24px;
+          }
+
+           .box-orange {
+              background-color: #ed6d49; }
+           .box-green {
+              background-color: #74b749; }
+           .box-yellow {
+              background-color: #ffb400; }
+           .box-blue {
+              background-color: #0daed3; }
+           .box-red {
+              background-color: #f63131; }
+           .box {
+              position: relative;
+              width: 100%;
+              padding-top: 20px;
+              padding-bottom: 20px;
+              margin-bottom: 20px;
+              text-align: center;
+            }
+
+            #calificaciones .box .header {
+              background: rgba(255,255,255,0.2);
+              color: rgba(255,255,255,0.9);
+              width: 100%;
+              height: 20px;
+              padding: 0px 0px;
+              position: absolute;
+              top: 0px;
+            }
+
+            #calificaciones .box .percent {
+              font-size: 12px;
+              position: absolute;
+              top: 110px;
+              width: 100%;
+              left: 0px;
+              text-align: center;
+              color: rgba(255,255,255,0.9);
+            }
+
+            #calificaciones .box .footer {
+              background: rgba(0,0,0,0.1);
+              color: rgba(255,255,255,0.9);
+              width: 100%;
+              height: 20px;
+              padding: 5px 0px;
+              position: absolute;
+              bottom: 0px;
+            }
+            #calificaciones .box .grafico {
+              position: relative;
+            }          
+
+            #calificaciones #promedio-historia{
+              min-height:234px;
+            }     
+
+            .button-box {
+            position: relative;
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+            filter: none;
+            height:100px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            }          
+
+            .button-box {
+            border: 1px solid #ddd;
+            margin-bottom: -1px;
+            padding: 20px 0px 0px 0px;
+            font-size: 14px;
+            -webkit-box-shadow: 0 1px 0px rgba(255, 255, 255, .8);
+            -moz-box-shadow: 0 1px 0px rgba(255, 255, 255, .8);
+            box-shadow: 0 1px 0px rgba(255, 255, 255, .8);
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            }    
+            .button-box p {
+            text-align:center;
+            margin-top: 0px;
+            } 
+
+            .button-box .badge {
+            text-align: center !important;
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            background: none;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+            }
+            .label, .badge {
+            text-shadow: none;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            padding: 3px 6px;
+            }
+            .badge {
+            padding-right: 9px;
+            padding-left: 9px;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            border-radius: 9px;
+            }
+            .label, .badge {
+            display: inline-block;
+            padding: 2px 4px;
+            font-size: 11.844px;
+            font-weight: bold;
+            line-height: 14px;
+            color: #fff;
+            vertical-align: baseline;
+            background-color: #999;
+            }                 
+
+     
+      </style>
+</head>
+<body>  
+<!--################# capa de envoltura #################-->
+<div id="wrapper">
+  <!--################# contenedor bootstrap #################-->
+  <div class="container">
+    <header class="row" id="header-top" >
+      <a class="navbar-brand col-md-2" href="#">Brand</a>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon">icon</i><span>Action</span></a></li>
+                <li><a href="#"><i class="icon">icon</i><span>Another action</span></a></li>
+                <li><a href="#"><i class="icon">icon</i><span>Something else here</span></a></li>
+                <li><a href="#"><i class="icon">icon</i><span>Separated link</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!--#################-fin de capa pagina #################-->
+    <div id="page" class="row">
+      <div id="sidebar-left" class="col-md-2">
+        <!-- ----------------------------Input Buscar------------------------ -->
+        <div id="search">
+          <form>
+            <input class="form-control input-sm" type="text" name="search" placeholder="Search...">
+            <button type="submit" id="search-btn" class="btn"><!--<i class="fa fa-search">lupa</i>--></button>
+          </form>
+        </div>
+
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#" class="list-group-item"><i class="icon">icon</i><span>Estudiantes</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>Profesores</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>Coordinacion Acedemica</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>control de estudio</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>Administracion</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>Director</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>coordinacion de planificacion</span></a></li>
+          <li><a href="#" class="list-group-item"><i class="icon">icon</i><span>Biblioteda</span></a></li>
+        </ul>
+      </div>
+      <!--#################-capa del lado derecho de interfaz #################-->   
+      <div id="right" class="col-md-10"> 
+        <!--#################-semillas de aplicacion #################-->                            
+        <ol id="semillas" class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
+        <!--################# fin semillas de aplicacion #################-->  
+
+        <!--################# capa de icono arriba #################-->    
+        <div class="row">
+          <div class="icon-top col-md-3">
+            <div class="box-notice-rectangle box-orange">
+                <div class="fs1" aria-hidden="true" data-icon="icon"></div>
+                <div class="info">692</div>
+                <a href="#" data-original-title="">Cartelera Estudiantil</a>
+            </div>
+          </div>
+          <div class="icon-top col-md-3">
+              <div class="box-notice-rectangle box-yellow">              
+                <div class="fs1" aria-hidden="true" data-icon="icon"></div>
+                <div class="info">5345</div>
+              <a href="#" data-original-title="">Cartelera Academica</a>
+            </div>
+          </div>
+          <div class="icon-top col-md-3">
+              <div class="box-notice-rectangle box-blue double">
+                <div class="fs1" aria-hidden="true" data-icon="icon"></div>
+                <div class="info">$9902</div>
+              <a href="#" data-original-title="">Cartelera Extra-Academica</a>
+            </div>
+          </div>
+          <div class="icon-top col-md-3">
+              <div class="box-notice-rectangle box-green">              
+                  <div class="fs1" aria-hidden="true" data-icon="icon"></div>
+                  <div class="info">$431</div>
+              <a href="#" data-original-title="">Cartelera Control de estudios</a>
+            </div>
+          </div>
+        </div>
+        <!--################# fin capa de icono arriba #################--> 
+
+        <!--################# capa de calificaciones #################-->    
+        <div id="calificaciones" class="row">
+          <div class="col-md-4">
+            <div class="box-notice-rectangle box-blue">
+                <div class="fs1" aria-hidden="true" data-icon="icon"></div>
+                <div class="info">$9902</div>
+              <a href="#" data-original-title="">Cartelera Extra-Academica</a>
+            </div>
+
+            <div id="promedio-actual" class="box box-orange">
+              <div class="header">Disk Space Usage</div>
+              <span class="percent">percent</span>
+              <div class="grafico">
+                <img src="http://placehold.it/100x100&text=Grafico" alt="">
+              </div>    
+              <div class="footer">
+                <span class="count">
+                  <span class="number">29000</span>
+                  <span class="unit">MB</span>
+                </span>
+                <span class="sep"> / </span>
+                <span class="value">
+                  <span class="number">50000</span>
+                  <span class="unit">MB</span>
+                </span> 
+              </div>
+            </div>         
+          </div>
+
+          <div class="col-md-8">
+            <div id="promedio-historia" class="box box-green">
+                <div class="header">Disk Space Usage</div>
+                <span class="percent">percent</span>
+                <div class="grafico">
+                  <img src="http://placehold.it/100x100&text=Grafico" alt="">
+                </div>    
+                <div class="footer">
+                  <span class="count">
+                    <span class="number">29000</span>
+                    <span class="unit">MB</span>
+                  </span>
+                  <span class="sep"> / </span>
+                  <span class="value">
+                    <span class="number">50000</span>
+                    <span class="unit">MB</span>
+                  </span> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <!--################# fin de capa de calificaciones #################-->  
+
+        <!--################# capa de enlaces extras #################-->  
+        <div class="row"> 
+          <div class="col-md-2">
+            <a class="button-box box-red">
+              <i class="icon-group"></i>
+              <p>Calificar Profesor</p>
+              <span class="badge">237</span>
+            </a>
+          </div>
+          <div class="col-md-2">
+            <a class="button-box box-red">
+              <i class="icon-comments-alt"></i>
+              <p>Comments</p>
+              <span class="badge">46</span>
+            </a>
+          </div>
+          <div class="col-md-2">
+            <a class="button-box box-red">
+              <i class="icon-shopping-cart"></i>
+              <p>Orders</p>
+              <span class="badge">13</span>
+            </a>
+          </div>
+          <div class="col-md-2">
+            <a class="button-box box-red">
+              <i class="icon-barcode"></i>
+              <p>Products</p>
+            </a>
+          </div>
+          <div class="col-md-2">
+            <a class="button-box box-red">
+              <i class="icon-envelope"></i>
+              <p>Messages</p>
+              <span class="badge">88</span>
+            </a>
+          </div>
+          <div class="col-md-2">
+            <a class="button-box box-red">
+              <i class="icon-calendar"></i>
+              <p>Expediente</p>
+            </a>
+            
+          </div>
+          <div class="clearfix"></div>                              
+        </div>
+        <!--################# fin de capa de enlaces extras #################--> 
+      </div>
+      <!--#################-fin de capa del lado derecho de interfaz #################-->
+    </div>
+    <!--#################-fin de capa pagina #################-->
+  </div> 
+  <!--################# contenedor bootstrap #################-->   
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</div>
+<!--################# fin capa de envoltura #################-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
